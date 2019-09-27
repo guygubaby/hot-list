@@ -3,7 +3,7 @@ ENV UWSGI_INI uwsgi.ini
 ENV DEBUG False
 WORKDIR /top-list
 COPY requirements.txt /
-RUN pip install --no-cache-dir -U pip \
+RUN pip install --no-cache-dir -U pip -i https://pypi.tuna.tsinghua.edu.cn/simple \
     && RUN pip install --no-cache-dir -r /requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
 COPY . .
 EXPOSE 5000
