@@ -10,7 +10,6 @@ api.add_resource(Ping, '/')
 api.add_resource(ZhiHu, '/zhihu')
 api.add_resource(Hupu, '/hupu')
 
-
 bootstrap()
 
 if __name__ == '__main__':
