@@ -30,7 +30,6 @@
 curl http://106.54.115.166:5000/api/types
 ```
 
-
 ```json
 {
     "code": 0,
