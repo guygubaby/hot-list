@@ -5,6 +5,7 @@ from models.HotListResponse import HotListResponse
 from utils.cates import all_category
 
 app = Flask(__name__)
+app.config['JSON_AS_ASCII'] = False
 
 
 @app.route('/')
