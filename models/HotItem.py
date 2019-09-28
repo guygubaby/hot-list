@@ -1,6 +1,7 @@
 class HotItem:
-    def __init__(self, title='', url='', category=None, description=None):
-        self.category = category
+    def __init__(self, title='', url='',desc=None, cate=1 ):
         self.title = title
         self.url = url
-        self.description = description
+        self.desc = desc
+        self.cate = cate
+

@@ -1,17 +1,20 @@
+from flask import jsonify
+
+
 class HotListResponse:
     def __init__(self):
         pass
 
     @staticmethod
-    def ok(code=0, message='ok'):
-        return {
+    def ok(code=0, data='ok'):
+        return jsonify({
             'code': code,
-            'message': message
-        }
+            'data': data
+        })
 
     @staticmethod
-    def error(code=-1, message='error'):
-        return {
+    def error(code=-1, data='error'):
+        return jsonify({
             'code': code,
-            'message': message
-        }
+            'data': data
+        })

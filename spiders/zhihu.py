@@ -5,8 +5,9 @@ from spiders.base import Spider
 from utils.headers import HEADERS
 from utils.urls import ZHIHU_URL
 from models.HotItem import HotItem
-from utils.mongo import zhihu_db
+from utils.mongo import hot_collection
 from utils.time_used_wrapper import time_used
+from utils.cates import types
 
 
 class ZhihuSpider(Spider):
@@ -24,9 +25,8 @@ class ZhihuSpider(Spider):
         for item in top_list:
             url = 'http://daily.zhihu.com/{}'.format(item.find('a').get('href'))
             title = item.select('span.title')[0].text
-            hot_item = HotItem(title, url,category=self.name)
+            hot_item = HotItem(title, url,cate=types['zhihu'])
             self.arr.append(hot_item)
-        zhihu_db.drop()
-        for item in self.arr:
-            zhihu_db.insert_one(item.__dict__)
+        hot_collection.delete_many({'cate':types['zhihu']})
+        hot_collection.insert_many([item.__dict__ for item in self.arr])
 

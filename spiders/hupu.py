@@ -5,8 +5,9 @@ from bs4 import BeautifulSoup
 from spiders.base import Spider
 from utils.headers import HEADERS
 from models.HotItem import HotItem
-from utils.mongo import hupu_db
+from utils.mongo import hot_collection
 from utils.time_used_wrapper import time_used
+from utils.cates import types
 
 
 class HupuSpider(Spider):
@@ -25,8 +26,7 @@ class HupuSpider(Spider):
             a_tag = item.select('.textSpan a')[0]
             url = 'https://bbs.hupu.com/{}'.format(a_tag.get('href'))
             title = a_tag.get('title')
-            hot_item = HotItem(title, url, category=self.name)
+            hot_item = HotItem(title, url, cate=types['hupu'])
             self.arr.append(hot_item)
-        hupu_db.drop()
-        for item in self.arr:
-            hupu_db.insert_one(item.__dict__)
+        hot_collection.delete_many({'cate':types['hupu']})
+        hot_collection.insert_many([item.__dict__ for item in self.arr])
