@@ -1,4 +1,4 @@
-echo/ "start deploy ..."
+echo "start deploy ..."
 cd /
 mkdir -p hot-list || exit 1
 cd hot-list
