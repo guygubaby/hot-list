@@ -1,0 +1,48 @@
+version: "3.7"
+services:
+    server:
+        image: "guygubaby/hotlist-server:latest"
+        ports:
+            - "5000:5000"
+        networks:
+            - backend
+            - frontend
+        restart: on-failure
+        healthcheck:
+            test: curl -f http://localhost:5000/ || exit 1
+            interval: 1m
+            timeout: 10s
+            retries: 3
+            start_period: 40s
+
+    mongo:
+        image: "mongo:latest"
+        networks:
+          - backend
+        ports:
+          - "27017"
+        volumes:
+          - hotlistdata:/data/db
+
+    mongo-express:
+        image: "mongo-express:latest"
+        networks:
+          - backend
+        environment:
+            - ME_CONFIG_MONGODB_SERVER=mongo
+        ports:
+            - "8081:8081"
+
+#    web:
+#        image: "hotlist-web:latest"
+#        networks:
+#          - frontend
+#        ports:
+#          - "8080:80"
+
+networks:
+  backend:
+  frontend:
+
+volumes:
+  hotlistdata:
