@@ -7,8 +7,8 @@ app = Flask(__name__)
 api = Api(app)
 
 api.add_resource(Ping, '/')
-api.add_resource(ZhiHu, '/zhihu')
-api.add_resource(Hupu, '/hupu')
+api.add_resource(ZhiHu, '/api/zhihu')
+api.add_resource(Hupu, '/api/hupu')
 
 bootstrap()
 
