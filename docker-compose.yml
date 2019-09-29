@@ -34,12 +34,12 @@ services:
         ports:
             - "8081:8081"
 
-#    web:
-#        image: "hotlist-web:latest"
-#        networks:
-#          - frontend
-#        ports:
-#          - "8080:80"
+    web:
+        image: "hotlist-web:latest"
+        networks:
+          - frontend
+        ports:
+          - "8080:80"
 
 networks:
   backend:
