@@ -24,7 +24,7 @@ def run_spider():
 
 
 def init_scheduler():
-    scheduler = BackgroundScheduler()
+    scheduler = BackgroundScheduler(timezone='UTC')
     scheduler.add_job(func=run_spider, trigger='interval', hours=1)
     scheduler.start()
     atexit.register(lambda: scheduler.shutdown())
