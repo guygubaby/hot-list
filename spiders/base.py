@@ -1,9 +1,6 @@
-from threading import Thread
-
-
-class Spider(Thread):
+class Spider:
     def __init__(self, name):
-        Thread.__init__(self)
+        # Thread.__init__(self)
         self.arr = []
         self.name = name
 

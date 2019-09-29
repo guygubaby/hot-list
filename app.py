@@ -7,6 +7,9 @@ from utils.cates import all_category
 app = Flask(__name__)
 app.config['JSON_AS_ASCII'] = False
 
+# start spider and scheduler for one hour get new data
+bootstrap()
+
 
 @app.route('/')
 def index():
@@ -24,8 +27,6 @@ def get_hot_list():
     _list = get_list(args)
     return HotListResponse.ok(data=_list)
 
-
-bootstrap()
 
 if __name__ == '__main__':
     app.run()
