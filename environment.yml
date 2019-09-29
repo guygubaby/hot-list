@@ -41,6 +41,5 @@ dependencies:
     - soupsieve==1.9.4
     - tzlocal==2.0.0
     - urllib3==1.25.6
-    - uwsgi==2.0.18
 prefix: //miniconda3/envs/hot-list
 
