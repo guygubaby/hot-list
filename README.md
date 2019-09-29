@@ -1,4 +1,6 @@
-### Hot List `python version`
+## Hot List `python version`
+
+### 热榜是一个获取各大热门网站热门头条的聚合网站，使用python语言编写，多进程快速抓取信息
 
 > 这个项目灵感来自于 [tophubs/TopList](https://github.com/tophubs/TopList) `golang version`
 
