@@ -7,7 +7,7 @@ from utils.cates import all_category
 app = Flask(__name__)
 app.config['JSON_AS_ASCII'] = False
 
-# start spider and scheduler for one hour get new data
+# start spider and scheduler for half hour get new data
 bootstrap()
 
 

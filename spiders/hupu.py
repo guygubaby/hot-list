@@ -6,7 +6,6 @@ from spiders.base import Spider
 from utils.headers import HEADERS
 from models.HotItem import HotItem
 from utils.mongo import hot_collection
-from utils.time_used_wrapper import time_used
 from utils.cates import types
 
 
@@ -14,7 +13,6 @@ class HupuSpider(Spider):
     def __init__(self, name='hupu'):
         Spider.__init__(self, name)
 
-    @time_used
     def run(self):
         super().run()
         res = requests.get(HUPU_URL,headers=HEADERS)
@@ -27,6 +25,7 @@ class HupuSpider(Spider):
             url = 'https://bbs.hupu.com/{}'.format(a_tag.get('href'))
             title = a_tag.get('title')
             hot_item = HotItem(title, url, cate=types['hupu'])
-            self.arr.append(hot_item)
+            with self.lock():
+                self.arr.append(hot_item)
         hot_collection.delete_many({'cate':types['hupu']})
         hot_collection.insert_many([item.__dict__ for item in self.arr])

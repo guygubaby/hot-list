@@ -6,7 +6,6 @@ from utils.headers import HEADERS
 from utils.urls import ZHIHU_URL
 from models.HotItem import HotItem
 from utils.mongo import hot_collection
-from utils.time_used_wrapper import time_used
 from utils.cates import types
 
 
@@ -14,7 +13,6 @@ class ZhihuSpider(Spider):
     def __init__(self, name='zhihu'):
         Spider.__init__(self, name)
 
-    @time_used
     def run(self):
         super().run()
         headers = HEADERS.copy()
@@ -33,7 +31,8 @@ class ZhihuSpider(Spider):
             desc_tag = item.select('p')
             desc = desc_tag[0].text if desc_tag else None
             hot_item = HotItem(title, url,cate=types['zhihu'],desc=desc)
-            self.arr.append(hot_item)
+            with self.lock():
+                self.arr.append(hot_item)
         hot_collection.delete_many({'cate':types['zhihu']})
         hot_collection.insert_many([item.__dict__ for item in self.arr])
 
