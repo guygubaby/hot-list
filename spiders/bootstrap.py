@@ -4,7 +4,7 @@ from concurrent.futures import ThreadPoolExecutor
 
 from . import *
 
-thread_list = [ZhihuSpider, HupuSpider, V2exSpider]
+spider_list = [ZhihuSpider, HupuSpider, V2exSpider]
 
 
 def run_spider(Spider):
@@ -14,7 +14,7 @@ def run_spider(Spider):
 
 def run():
     with ThreadPoolExecutor(64) as executor:
-        executor.map(run_spider, thread_list)
+        executor.map(run_spider, spider_list)
 
 
 def init_scheduler():
