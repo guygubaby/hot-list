@@ -8,3 +8,6 @@ douban_url = 'https://www.douban.com/group/explore'# 豆瓣
 tinaya_url = 'http://bbs.tianya.cn/list.jsp?item=funinfo&grade=3&order=1' # 天涯
 baidu_url = 'http://top.baidu.com/buzz?b=341&c=513&fr=topbuzz_b1' # 百度
 url_36kr = 'https://36kr.com/' # 36kr
+qdaily_url = 'https://www.qdaily.com/tags/29.html' # 好奇心日报
+guokr_url = 'https://www.guokr.com/scientific/' # 果壳
+huxiu_url = 'https://www.huxiu.com/article' # 虎嗅

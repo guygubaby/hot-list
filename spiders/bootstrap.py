@@ -15,7 +15,10 @@ spider_list = [ZhihuSpider,
                DoubanSpider,
                TianyaSpider,
                BaiduSpider,
-               Spider36kr]
+               Spider36kr,
+               QdailySpider,
+               GuokrSpider,
+               HuxiuSpider]
 
 
 def run_spider(Spider):

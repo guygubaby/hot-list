@@ -8,7 +8,10 @@ types = {
     'douban':7,
     'tianya':8,
     'baidu':9,
-    '36kr':10
+    '36kr':10,
+    'qdaily':11,
+    'guokr':12,
+    'huxiu':13,
 }
 
 all_category = [
@@ -51,5 +54,17 @@ all_category = [
     {
         'id': 10,
         'title': '36kr'
+    },
+    {
+        'id': 11,
+        'title': '好奇心日报'
+    },
+    {
+        'id': 12,
+        'title': '果壳'
+    },
+    {
+        'id': 13,
+        'title': '虎嗅'
     }
 ]

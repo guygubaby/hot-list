@@ -8,3 +8,6 @@ from .douban import DoubanSpider
 from .tianya import TianyaSpider
 from .baidu import BaiduSpider
 from .spider_36kr import Spider36kr
+from .qdaily import QdailySpider
+from .guokr import GuokrSpider
+from .huxiu import HuxiuSpider
