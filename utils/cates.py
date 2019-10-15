@@ -4,6 +4,11 @@ types = {
     'v2ex':3,
     'weibo':4,
     'github':5,
+    'tieba':6,
+    'douban':7,
+    'tianya':8,
+    'baidu':9,
+    '36kr':10
 }
 
 all_category = [
@@ -26,5 +31,25 @@ all_category = [
     {
         'id': 5,
         'title': 'github'
+    },
+    {
+        'id': 6,
+        'title': '贴吧'
+    },
+    {
+        'id': 7,
+        'title': '豆瓣'
+    },
+    {
+        'id': 8,
+        'title': '天涯'
+    },
+    {
+        'id': 9,
+        'title': '百度'
+    },
+    {
+        'id': 10,
+        'title': '36kr'
     }
 ]

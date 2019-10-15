@@ -3,3 +3,8 @@ from .hupu import HupuSpider
 from .v2ex import V2exSpider
 from .weibo import WeiBoSpider
 from .github import GithubSpider
+from .tieba import TiebaSpider
+from .douban import DoubanSpider
+from .tianya import TianyaSpider
+from .baidu import BaiduSpider
+from .spider_36kr import Spider36kr

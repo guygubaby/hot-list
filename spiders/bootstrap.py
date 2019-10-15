@@ -1,17 +1,28 @@
 import atexit
 from apscheduler.schedulers.background import BackgroundScheduler
 from concurrent.futures import ThreadPoolExecutor
+from utils.time_used_wrapper import time_used
+
 
 from . import *
 
-spider_list = [ZhihuSpider, HupuSpider, V2exSpider,WeiBoSpider,GithubSpider]
+spider_list = [ZhihuSpider,
+               HupuSpider,
+               V2exSpider,
+               WeiBoSpider,
+               GithubSpider,
+               TiebaSpider,
+               DoubanSpider,
+               TianyaSpider,
+               BaiduSpider,
+               Spider36kr]
 
 
 def run_spider(Spider):
     spider = Spider()
     spider.run()
 
-
+@time_used
 def run():
     with ThreadPoolExecutor(64) as executor:
         executor.map(run_spider, spider_list)
