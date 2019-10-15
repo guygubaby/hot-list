@@ -25,7 +25,6 @@ class HupuSpider(Spider):
             url = 'https://bbs.hupu.com/{}'.format(a_tag.get('href'))
             title = a_tag.get('title')
             hot_item = HotItem(title, url, cate=types['hupu'])
-            with self.lock():
-                self.arr.append(hot_item)
+            self.arr.append(hot_item)
         hot_collection.delete_many({'cate':types['hupu']})
         hot_collection.insert_many([item.__dict__ for item in self.arr])

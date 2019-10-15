@@ -7,4 +7,3 @@ db = client.hotlist
 
 hot_collection = db.list
 
-

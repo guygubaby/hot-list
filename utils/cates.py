@@ -1,7 +1,8 @@
 types = {
     'zhihu':1,
     'hupu':2,
-    'v2ex':3
+    'v2ex':3,
+    'weibo':4
 }
 
 all_category = [
@@ -16,5 +17,9 @@ all_category = [
     {
         'id': 3,
         'title': 'v2ex'
+    },
+    {
+        'id': 4,
+        'title': '微博'
     }
 ]

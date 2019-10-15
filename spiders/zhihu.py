@@ -31,8 +31,7 @@ class ZhihuSpider(Spider):
             desc_tag = item.select('p')
             desc = desc_tag[0].text if desc_tag else None
             hot_item = HotItem(title, url,cate=types['zhihu'],desc=desc)
-            with self.lock():
-                self.arr.append(hot_item)
+            self.arr.append(hot_item)
         hot_collection.delete_many({'cate':types['zhihu']})
         hot_collection.insert_many([item.__dict__ for item in self.arr])
 

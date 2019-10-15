@@ -23,8 +23,7 @@ class V2exSpider(Spider):
             title = item.text
             url = 'https://www.v2ex.com{}'.format(item.get('href'))
             hot_item = HotItem(title, url, cate=types['v2ex'])
-            with self.lock():
-                self.arr.append(hot_item)
+            self.arr.append(hot_item)
 
         hot_collection.delete_many({'cate':types['v2ex']})
         hot_collection.insert_many([item.__dict__ for item in self.arr])
