@@ -24,6 +24,7 @@ class HupuSpider(Spider):
             a_tag = item.select('.textSpan a')[0]
             url = 'https://bbs.hupu.com/{}'.format(a_tag.get('href'))
             title = a_tag.get('title')
+            title = title.replace('zt','')
             hot_item = HotItem(title, url, cate=types['hupu'])
             self.arr.append(hot_item)
         hot_collection.delete_many({'cate':types['hupu']})

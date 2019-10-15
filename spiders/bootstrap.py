@@ -4,7 +4,7 @@ from concurrent.futures import ThreadPoolExecutor
 
 from . import *
 
-spider_list = [ZhihuSpider, HupuSpider, V2exSpider,WeiBoSpider]
+spider_list = [ZhihuSpider, HupuSpider, V2exSpider,WeiBoSpider,GithubSpider]
 
 
 def run_spider(Spider):
