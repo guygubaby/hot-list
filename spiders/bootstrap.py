@@ -3,7 +3,6 @@ from apscheduler.schedulers.background import BackgroundScheduler
 from concurrent.futures import ThreadPoolExecutor
 from utils.time_used_wrapper import time_used
 
-
 from . import *
 
 spider_list = [ZhihuSpider,
@@ -25,6 +24,7 @@ def run_spider(Spider):
     spider = Spider()
     spider.run()
 
+
 @time_used
 def run():
     with ThreadPoolExecutor(64) as executor:
@@ -33,7 +33,7 @@ def run():
 
 def init_scheduler():
     scheduler = BackgroundScheduler(timezone='UTC')
-    scheduler.add_job(func=run, trigger='interval', minutes=30)
+    scheduler.add_job(func=run, trigger='interval', max_instances=len(spider_list), minutes=30)
     scheduler.start()
     atexit.register(lambda: scheduler.shutdown())
 

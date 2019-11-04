@@ -1,0 +1,16 @@
+language: python
+python:
+  - "3.7"
+env:
+  global:
+    - ImageName=guygubaby/hotlist-server:latest
+services:
+  - docker
+install:
+  - pip install -r requirements.txt
+script:
+  - docker build -t $ImageName .
+after_success:
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker push $ImageName
+
